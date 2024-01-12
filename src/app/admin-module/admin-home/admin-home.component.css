@@ -1,0 +1,52 @@
+/* .background-container {
+    background-image: url('https://th.bing.com/th/id/OIP.t1ohaTirFKvjZfEMUvHhgAHaEK?w=293&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    filter: blur(1px); 
+  }
+  .my-text {
+    font-size: 60px;
+    font-weight: bold;
+    color:black
+  } */
+
+  .background-container {
+    position: relative;
+    height: 520px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+.background-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background-image: url('https://th.bing.com/th/id/OIP.t1ohaTirFKvjZfEMUvHhgAHaEK?w=293&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7'); */
+    /* background-image: url('C:\Users\ramya.a\Desktop\Angular\TeleQuoteProject\src\assets\img\adminHome.jpg'); */
+    background-image: url('C:\Users\ramya.a\Desktop\Angular\TeleQuoteProject\src\assets\img\adminHome2.jpg');
+   
+    background-position: center;
+    background-size: cover;
+    opacity: 5; /* Adjust the opacity value (0.0 to 1.0) to control the intensity of the blur effect */
+}
+
+.my-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: aliceblue;
+    z-index: 1; /* Ensure the text appears above the background */
+}

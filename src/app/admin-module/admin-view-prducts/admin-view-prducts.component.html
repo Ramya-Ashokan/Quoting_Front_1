@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a> 
+         <h1 class="m-0 text-primary"> <i class="bi bi-file-richtext"></i> TeleQuotePro
+   
+         </h1>
+     </a>
+     <div class="collapse navbar-collapse" id="navbarCollapse">
+         <div class="navbar-nav ms-auto p-4 p-lg-0">
+             <a  class="nav-item nav-link active" routerLink="/adminHome">Home</a>
+             <a  class="nav-item nav-link" routerLink="/addproducts">Add Plans</a>
+             <a  class="nav-item nav-link" routerLink="/adminViewProducts">View Plans </a>
+        
+        </div>
+         <a  class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" routerLink="/logout">Log out<i class="fa fa-arrow-right ms-3"></i></a>
+       
+        </div>
+   </nav>
+
+<br><br>
+<div *ngIf="products.length==0">
+  <h1>No plans Added</h1>
+</div> 
+
+  <div *ngIf="products.length>0">
+    <table class="custom-table">
+        <thead>
+          <tr>
+    
+            <th>ID</th>
+            <th>plan Name</th>
+            <th>Customer Type</th>
+            <th>Features</th>
+            <th>Validity</th>
+            <th>Price</th>
+            <th>Subscription </th>
+            <th>Location</th>
+            <th colspan="2">options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+              
+              <td > {{p.productId}} </td>
+              <td> {{p.productName}} </td>
+              <td> {{p.customerType}} </td>
+              <td>{{p.features}}</td>
+              <td>{{p.validity}}</td>
+              <td> {{p.price}} </td>
+              <td>
+                <ng-container *ngFor="let subscription of p.subscriptions">
+                    <!-- <div>ID: {{ subscription.subscriptionId }}</div> -->
+                    <div>{{ subscription.subscriptionName }},</div>
+                  </ng-container>
+              </td>
+              <td>
+                <ng-container *ngFor="let location of p.locations">
+                    <!-- <div>ID: {{ location.locationId }}</div> -->
+                    <div>{{ location.locationName }},</div>
+                  </ng-container>
+              </td>
+              <td><button class="edit-btn" (click)="editById(p.productId)">Edit</button></td>
+              <td><input  type="button"class="delete-btn" (click)="deleteById(p.productId)" value="Delete"></td>
+         
+              <div *ngIf="successMessage" class="success-message" style="color:green">{{successMessage }}</div> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
